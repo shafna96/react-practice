@@ -4,7 +4,7 @@ import ToggleButton from "./ToggleButton";
 function Header() {
   return (
     <div className="flex bg-purple-400 text-white">
-      <a className="flex min-h-16 w-48 justify-center text-center items-center bg-purple-500 capitalize text-xl">
+      <a className="flex min-h-16 w-56 justify-center items-center bg-purple-500 capitalize text-xl">
         daisy UI
       </a>
       <div className="navbar">

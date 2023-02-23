@@ -10,9 +10,9 @@ module.exports = {
         "2xl": "1200px",
       },
     },
-    fontFamily: {
-      sans: ["Montserrat", "Open Sans"],
-    },
+    // fontFamily: {
+    //   sans: ["Montserrat", "Open Sans"],
+    // },
   },
   plugins: [require("daisyui")],
 };
