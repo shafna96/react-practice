@@ -22,8 +22,11 @@ const Input = ({ label, placeholder, input, select, date }) => {
       )}
       {select && (
         <div className="flex w-full border rounded-md">
-          <select className="flex-1 select rounded-md w-full">
-            <option disabled selected>
+          <select
+            className="flex-1 select rounded-md w-full"
+            defaultValue={"-Select-"}
+          >
+            <option defaultValue={"-Select-"} disabled>
               -Select-
             </option>
             <option>Han Solo</option>

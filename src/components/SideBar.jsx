@@ -22,7 +22,7 @@ function SideBar() {
           className="drawer-toggle"
         />
         <div className="drawer-content bg-purple-50">
-          <Content />
+          <Content title={"Items"} />
         </div>
         <div className={sideClassName}>
           <label
