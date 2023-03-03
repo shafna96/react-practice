@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Content from "./Content";
 import ToggleButton from "./ToggleButton";
 import { Drawer, Button } from "react-daisyui";
+import { Link } from "react-router-dom";
 
 function SideBar() {
   const [checkbox, setcheckBox] = useState(true);
@@ -31,10 +32,10 @@ function SideBar() {
           ></label>
           <ul className="menu p-4 w-48 bg-base-200 text-base-content">
             <li>
-              <a>Sidebar Item 1</a>
+              <Link to={"/newitem"}>New Item</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <Link to={"/itemlist"}>Item List</Link>
             </li>
           </ul>
         </div>
