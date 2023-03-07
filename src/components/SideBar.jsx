@@ -32,10 +32,10 @@ function SideBar() {
           ></label>
           <ul className="menu p-4 w-48 bg-base-200 text-base-content">
             <li>
-              <Link to={"/newitem"}>New Item</Link>
+              <Link to={"newitem"}>New Item</Link>
             </li>
             <li>
-              <Link to={"/itemlist"}>Item List</Link>
+              <Link to={"itemlist"}>Item List</Link>
             </li>
           </ul>
         </div>

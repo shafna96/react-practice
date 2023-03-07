@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ToggleButton from "./ToggleButton";
 
 function Header() {
   return (
     <div className="flex bg-purple-400 text-white">
-      <a className="flex min-h-16 w-56 justify-center items-center bg-purple-500 capitalize text-xl">
-        daisy UI
-      </a>
+      <Link to={"login"}>
+        <a className="flex min-h-16 w-56 justify-center items-center bg-purple-500 capitalize text-xl">
+          daisy UI
+        </a>
+      </Link>
       <div className="navbar">
         <div className="flex-1">
           {/* <i className="bi bi-list text-2xl"></i> */}

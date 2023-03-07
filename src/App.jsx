@@ -8,11 +8,28 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./screens/Home";
 import ItemForm from "./components/ItemForm";
 import TableList from "./components/TableList";
+import LoginScreen from "./screens/LoginScreen";
+import { useState } from "react";
 
 function App() {
+  const [logged, setLogged] = useState(true);
   return (
     <div className="App">
-      <Home />
+      {/* {logged ? ( */}
+      {/* <Home /> */}
+
+      {/* <Routes>
+       
+      </Routes> */}
+      {/* ) : ( */}
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="newitem" element={<ItemForm />} />
+          <Route path="itemlist" element={<TableList />} />
+        </Route>
+        <Route path="/login" element={<LoginScreen />} />
+      </Routes>
+      {/* )} */}
     </div>
   );
 }
