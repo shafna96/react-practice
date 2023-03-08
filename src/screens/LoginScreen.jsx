@@ -6,16 +6,6 @@ function LoginScreen() {
   const navigate = useNavigate();
   return (
     <div className="flex-1">
-      {/* <Link to={"/"}>
-        <a>LoginScreen</a>
-      </Link> */}
-      {/* <button
-        onClick={() => {
-          navigate("/");
-        }}
-      >
-        Login
-      </button> */}
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Content from "./Content";
-import ToggleButton from "./ToggleButton";
-import { Drawer, Button } from "react-daisyui";
+
 import { Link } from "react-router-dom";
 
 function SideBar() {
