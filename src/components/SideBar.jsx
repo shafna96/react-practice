@@ -21,8 +21,8 @@ function SideBar() {
           checked={checked}
           className="drawer-toggle"
         />
-        <div className="drawer-content bg-purple-50">
-          <Content title={"Items"} />
+        <div className="drawer-content bg-purple-50 ">
+          <Content />
         </div>
         <div className={sideClassName}>
           <label
@@ -30,6 +30,9 @@ function SideBar() {
             className="drawer-overlay  bg-base-200 justify-center items-center"
           ></label>
           <ul className="menu p-4 w-48 bg-base-200 text-base-content">
+            <li>
+              <Link to={"/"}>Dashboard</Link>
+            </li>
             <li>
               <Link to={"newitem"}>New Item</Link>
             </li>
