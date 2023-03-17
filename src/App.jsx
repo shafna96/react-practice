@@ -2,11 +2,14 @@ import "./App.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import RoutesNav from "./navigations/RoutesNav";
+import { AuthProvider } from "./navigations/auth";
 
 function App() {
   return (
     <div className="App">
-      <RoutesNav />
+      <AuthProvider>
+        <RoutesNav />
+      </AuthProvider>
     </div>
   );
 }

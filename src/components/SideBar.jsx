@@ -39,6 +39,9 @@ function SideBar() {
             <li>
               <Link to={"itemlist"}>Item List</Link>
             </li>
+            <li>
+              <Link to={"login"}>logout</Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
-
+import { AuthContext } from "../navigations/auth";
+//import { useAuth } from "../navigations/auth";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 function LoginScreen() {
   const navigate = useNavigate();
+  // const auth = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { signIn, signUp } = useContext(AuthContext);
+
+  const signInHandler = () => {
+    signIn(email, password);
+    navigate("/");
+  };
+
+  const signUpHandler = () => {
+    signUp(email, password);
+    navigate("/");
+  };
+  // const signIn = () => {
+  //   auth.signIn(email, password);
+  //   navigate("/");
+  // };
+
+  // const signUp = () => {
+  //   auth.signUp(email, password);
+  //   navigate("/");
+  // };
   return (
     <div className="flex-1">
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -31,31 +57,30 @@ function LoginScreen() {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
+                <label className="sr-only">Email address</label>
                 <input
-                  id="email-address"
-                  name="email"
+                  //id="email-address"
                   type="email"
-                  autoComplete="email"
-                  // required
+                  // value={email}
                   className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Email address"
+                  onChange={(e) => setEmail(e.target.value)}
+                  // name="email"
+                  // autoComplete="email"
+                  // required
                 />
               </div>
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
+                <label className="sr-only">Password</label>
                 <input
-                  id="password"
-                  name="password"
+                  // value={password}
                   type="password"
-                  autoComplete="current-password"
-                  // required
                   className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  //  name="password"
+                  //autoComplete="current-password"
+                  // required
                 />
               </div>
             </div>
@@ -88,10 +113,11 @@ function LoginScreen() {
 
             <div>
               <button
-                // type="submit"
-                onClick={() => {
-                  navigate("/");
-                }}
+                type="submit"
+                // onClick={() => {
+                //   navigate("/");
+                // }}
+                onClick={signInHandler}
                 className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -101,6 +127,22 @@ function LoginScreen() {
                   />
                 </span>
                 Sign in
+              </button>
+              <button
+                // type="submit"
+                // onClick={() => {
+                //   navigate("/");
+                // }}
+                onClick={signUpHandler}
+                className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-3"
+              >
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <LockClosedIcon
+                    className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                    aria-hidden="true"
+                  />
+                </span>
+                Sign up
               </button>
             </div>
           </form>
