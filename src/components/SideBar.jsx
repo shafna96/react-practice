@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Content from "./Content";
+import { AuthContext } from "../navigations/auth";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SideBar() {
+  const navigate = useNavigate();
+
+  const { logout } = useContext(AuthContext);
+
   const [checkbox, setcheckBox] = useState(true);
   const [visible, setvisible] = useState(false);
   const handleCheckbox = (e) => {
     setcheckBox((prevState) => !prevState);
     setvisible((prevState) => !prevState);
+  };
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    logout();
+    navigate("/login");
   };
 
   const Toggle = ({ checked, sideClassName, className }) => {
@@ -40,7 +51,8 @@ function SideBar() {
               <Link to={"itemlist"}>Item List</Link>
             </li>
             <li>
-              <Link to={"login"}>logout</Link>
+              {/* <Link to={"/login"}>logout</Link> */}
+              <button onClick={logoutHandler}>logout</button>
             </li>
           </ul>
         </div>

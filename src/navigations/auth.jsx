@@ -14,7 +14,12 @@ export const AuthProvider = ({ children }) => {
 
   const signIn = async (email, password) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        }
+      );
     } catch (err) {
       console.log(err);
     }
@@ -22,18 +27,22 @@ export const AuthProvider = ({ children }) => {
 
   const signUp = async (email, password) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password).then(() => {
-        firestore()
-          .collection("users")
-          .doc(auth().currentUser.uid)
-          .set({
-            fname: "",
-            lname: "",
-            email: email,
-            createdAt: firestore.Timestamp.fromDate(new Date()),
-            userImg: null,
-          });
-      });
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        (userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          // firestore()
+          //   .collection("users")
+          //   .doc(auth().currentUser.uid)
+          //   .set({
+          //     fname: "",
+          //     lname: "",
+          //     email: email,
+          //     createdAt: firestore.Timestamp.fromDate(new Date()),
+          //     userImg: null,
+          //   });
+        }
+      );
     } catch (err) {
       console.log(err);
     }
